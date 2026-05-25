@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   lint:
@@ -55,3 +56,8 @@ jobs:
         run: npm install
       - name: Run Build
         run: npm run build
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gotowa-aplikacja
+          path: dist/
